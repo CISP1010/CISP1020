@@ -1,6 +1,6 @@
 package Notes08_15_23;
 
-public class PrintF {
+public class PrintF_Scratch {
     public static void main(String[] args) {
         String item = "Laptop";
         double price = 299.856;
