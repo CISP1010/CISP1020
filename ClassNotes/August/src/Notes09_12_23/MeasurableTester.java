@@ -27,5 +27,13 @@ public class MeasurableTester
                                                     //The average method in Data.java calls the getMeasure method in Country.java
       System.out.println("Average area: " + averageArea);
       System.out.println("Expected: 239950");
+
+      Country Uruguay = new Country("Uruguay", 176220);
+      Country Thailand = new Country("Thailand", 513120);
+      Measurable max = Data.larger(Uruguay, Thailand); //calls the larger method in Data.java and passes the objects Uruguay and Thailand.
+                                                       //The larger method in Data.java calls the getMeasure method in Country.java
+      Country  largerC = (Country) max; //The larger method in Data.java returns a Measurable object.
+                                        //The Measurable object is cast to a Country object.
+      System.out.println("Larger country: " + largerC.getName());
    }
 }
