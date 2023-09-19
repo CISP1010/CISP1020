@@ -1,4 +1,4 @@
-package package_Classwork2;
+package Classwork2;
 
 import java.util.ArrayList;
 
