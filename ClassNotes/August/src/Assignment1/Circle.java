@@ -2,6 +2,8 @@ package Assignment1;
 
 public class Circle extends GeometricObject{
     private double radius;
+    public Circle() {
+    }
     public Circle(double radius) {
         this.radius = radius;
     }
@@ -27,10 +29,12 @@ public class Circle extends GeometricObject{
         return 2 * radius * Math.PI;
     }
 
+    @Override
     public String toString() {
         return "Circle: Date Created = " + getDateCreated() + " Radius = " + radius + " area = " + getArea() + " perimeter = " + getPerimeter() + " color = " + getColor() + " filled = " + isFilled();
     }
 
+    @Override
     public boolean equals(Object otherObject) {
         if (otherObject instanceof Circle other) {
             return radius == other.radius && getColor().equals(other.getColor()) && isFilled() == other.isFilled();

@@ -1,24 +1,26 @@
 package Assignment1;
 
 public class Square extends GeometricObject implements Colorable, Comparable<Square>{
-    private int side;
+    private double side;
 
-    public Square(int side) {
+    public Square() {
+    }
+    public Square(double side) {
         this.side = side;
     }
-    public Square(int side, String color, boolean filled) {
+    public Square(double side, String color, boolean filled) {
         super(color, filled);
         this.side = side;
     }
 
-    public int getSide() {
+    public double getSide() {
         return side;
     }
-    public void setSide(int side) {
+    public void setSide(double side) {
         this.side = side;
     }
 
-    public int getArea() {
+    public double getArea() {
         return side * side;
     }
 
@@ -26,21 +28,18 @@ public class Square extends GeometricObject implements Colorable, Comparable<Squ
         return 4 * side;
     }
 
+
+    @Override
     public void howToColor() {
         System.out.println(" How to color = Color all four sides");
     }
 
-    public interface Comparable<E> {
-        public int compareTo(E o);
-    }
-
+    @Override
     public int compareTo(Square other) {
-        if (Math.abs(this.getArea() - other.getArea()) < 1e-9) {
-            return 0;
-        }
-        return (this.getArea() < other.getArea()) ? -1 : 1;
+        return Double.compare(this.getArea(), other.getArea());
     }
 
+    @Override
     public String toString() {
         return "Square: Date Created = " + getDateCreated() + " Side = " + side + " area = " + getArea() + " perimeter = " + getPerimeter() + " color = " + getColor() + " filled = " + isFilled();
     }

@@ -33,7 +33,7 @@ public class GeometricObject {
     }
 
     public Date getDateCreated() {
-        return dateCreated;
+        return new Date(dateCreated.getTime());
     }
     @Override
     public String toString() {

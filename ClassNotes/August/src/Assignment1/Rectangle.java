@@ -4,6 +4,8 @@ public class Rectangle extends GeometricObject{
     private double width;
     private double height;
 
+    public Rectangle() {
+    }
     public Rectangle(double width, double height) {
         this.width = width;
         this.height = height;
@@ -37,6 +39,7 @@ public class Rectangle extends GeometricObject{
         return 2 * (width + height);
     }
 
+    @Override
     public String toString() {
         return "Rectangle: Date Created = " + getDateCreated() + " Width = " + width + " Height = " + height + " area = " + getArea() + " perimeter = " + getPerimeter() + " color = " + getColor() + " filled = " + isFilled();
     }
