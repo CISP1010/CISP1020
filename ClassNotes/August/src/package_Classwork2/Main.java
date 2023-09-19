@@ -3,7 +3,7 @@ package package_Classwork2;
 import java.util.ArrayList;
 
 /**
- * Main class for demonstrating the functionalities of Employee and Manager classes.
+ * GeometricObject class for demonstrating the functionalities of Employee and Manager classes.
  * This class shows how to use toString(), equals(), and polymorphism with Employee and Manager objects.
  */
 public class Main {
