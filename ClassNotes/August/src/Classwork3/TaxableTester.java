@@ -11,18 +11,30 @@ public class TaxableTester {
         houses[2] = new House("house3", 300000);
 
         double totalTax = Utility.totalTax(houses); //Calls the totalTax method in Utility.java and passes the array houses.
+        //The TotalTax method in Utility.java calls the getTaxable method in Houses.java
         System.out.println("TotalTax: $" + Math.round(totalTax * 100) / 100.0);
         System.out.println("Expected: $6000.0");
 
         // Calling the Taxable method with an array of Item objects
         Taxable[] items = new Taxable[3];
         items[0] = new Item("Code1", 45.34);
-        items[1] = new Item("Code2", 22.99);
+        items[1] = new Item("Code2", 229999999);
         items[2] = new Item("Code3", 98.23);
 
         double totalTaxItems = Utility.totalTax(items); //calls the TotalTax method in Utility.java and passes the array Items.
-        //The TotalTax method in Utility.java calls the getTax method in Items.java
+        //The TotalTax method in Utility.java calls the getTaxable method in Items.java
         System.out.println("Total Tax: $" + Math.round(totalTaxItems * 100.0) / 100.0);
         System.out.println("Expected: $11.66");
+
+
+        Taxable theLargest = Utility.largest(houses[0], items[1]);
+        if (theLargest instanceof Item) {
+            Item large = (Item) theLargest;
+            System.out.println("The largest is: " + large.getCode());
+        }
+        else {
+            House large = (House) theLargest;
+            System.out.println("The largest is: " + large.getId());
+        }
     }
 }
