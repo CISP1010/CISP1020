@@ -32,14 +32,14 @@ public class InputFileDemo {
     private static Scanner initializeScanner(String filePath, String fullPath) {
         Scanner scanner = null;
         try {
-            File file = new File(filePath);
-            scanner = new Scanner(file);
+            File inFile = new File(filePath);
+            scanner = new Scanner(inFile);
         } catch (FileNotFoundException e) {
-            System.out.println("File not found. Creating...");
+            System.out.println("In File not found. Creating...");
             createFile(fullPath);
-            File file = new File(fullPath);
+            File inFile = new File(fullPath);
             try {
-                scanner = new Scanner(file);
+                scanner = new Scanner(inFile);
             } catch (FileNotFoundException ex) {
                 System.out.println("File creation failed.");
             }
@@ -49,12 +49,19 @@ public class InputFileDemo {
 
     private static PrintWriter initializePrintWriter(String filePath, String fullPath) {
         PrintWriter writer = null;
-        File file = createFile(fullPath);
-        assert file != null;
-        try {
-            writer = new PrintWriter(file);
+        try{
+            File outFile = createFile(filePath);
+            assert outFile != null;
+            writer = new PrintWriter(outFile);
         } catch (FileNotFoundException e) {
-            System.out.println("File creation failed.");
+            System.out.println("Out File not found. Creating...");
+            createFile(fullPath);
+            File outFile = new File(fullPath);
+            try {
+                writer = new PrintWriter(outFile);
+            } catch (FileNotFoundException ex) {
+                System.out.println("File creation failed.");
+            }
         }
         return writer;
     }
