@@ -14,6 +14,7 @@ public class Main {
         System.out.println("1. Enter coefficients from the keyboard");
         System.out.println("2. Read VALID coefficients from the input file");
         System.out.println("3. Read INVALID coefficients from the input file");
+        System.out.println("4. Read numbers from a file and write them to a new file along with if they are even or odd");
         System.out.print("Select an option: ");
         double option = input.nextDouble();
 
@@ -40,6 +41,13 @@ public class Main {
                     break;
 
                 }
+            case 4:
+                inputFileName = currentDirectory + File.separator + "numbers.txt";
+                outputFileName = currentDirectory + File.separator + "even_odd.txt";
+                EvenOdd.evenOdd(inputFileName, outputFileName);
+                break;
+            default:
+                System.out.println("Invalid option");
         }
     }
 }
